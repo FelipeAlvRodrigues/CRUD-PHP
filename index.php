@@ -41,6 +41,7 @@
     <div class="row">
       <div class="col mt-5">
         <?php
+        include("models/database.php");
         switch (@$_REQUEST["page"]) {
 
           case "form-user":
@@ -55,10 +56,17 @@
           case "list-divida":
             include("views/list_dividas.php");
             break;
+          case "salvar-devedor":
+            include("controllers/devedor_controller.php");
+            break;
+          case "salvar-divida":
+            include("controllers/divida_controller.php");
+            break;
           default:
             echo "<h1>Bem-vindo ao sistema de Cadastro de Devedores e Dívidas</h1>";
             break;
         }
+
         ?>
       </div>
     </div>
