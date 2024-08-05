@@ -58,6 +58,8 @@
             break;
           case "salvar-devedor":
             include("controllers/devedor_controller.php");
+            $devedorController = new devedorController();
+            $devedorController->salvar();
             break;
           case "salvar-divida":
             include("controllers/divida_controller.php");
