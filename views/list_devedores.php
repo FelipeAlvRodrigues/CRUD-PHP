@@ -17,18 +17,19 @@ $devedores = $devedorController->listar();
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($devedores as $devedor): ?>
-    <tr>
-      <td><?php echo htmlspecialchars($devedor['id']); ?></td>
-      <td><?php echo htmlspecialchars($devedor['nome']); ?></td>
-      <td><?php echo htmlspecialchars($devedor['cpf_cnpj']); ?></td>
-      <td><?php echo htmlspecialchars($devedor['data_nascimento']); ?></td>
-      <td><?php echo htmlspecialchars($devedor['endereco']); ?></td>
-       <td>
-        <button class="btn btn-success">Editar</button>
-        <button class="btn btn-danger">Excluir</button>
-       </td>
-    </tr>
+    <?php foreach ($devedores as $devedor) : ?>
+      <tr>
+        <td><?php echo htmlspecialchars($devedor['id']); ?></td>
+        <td><?php echo htmlspecialchars($devedor['nome']); ?></td>
+        <td><?php echo htmlspecialchars($devedor['cpf_cnpj']); ?></td>
+        <td><?php echo htmlspecialchars($devedor['data_nascimento']); ?></td>
+        <td><?php echo htmlspecialchars($devedor['endereco']); ?></td>
+        <td>
+        <a href="?page=editar-devedor&id=<?php echo $devedor['id']; ?>" class="btn btn-success">Editar</a>
+
+          <button class="btn btn-danger">Excluir</button>
+        </td>
+      </tr>
     <?php endforeach; ?>
   </tbody>
 </table>

@@ -42,6 +42,7 @@
       <div class="col mt-5">
         <?php
         include("models/database.php");
+        $success = false;
         switch (@$_REQUEST["page"]) {
 
           case "form-user":
@@ -49,7 +50,7 @@
             break;
           case "list-user":
             include("views/list_devedores.php");
-        
+
             break;
           case "form-divida":
             include("views/form_dividas.php");
@@ -61,9 +62,27 @@
             include("controllers/devedor_controller.php");
             $devedorController = new devedorController();
             $devedorController->salvar();
+            if ($success) {
+              echo "<div class='alert alert-success'>Devedor cadastrado com sucesso!</div>";
+            } else {
+              echo "<div class='alert alert-danger'>Erro ao cadastrar Devedor. Tente novamente.</div>";
+            }
             break;
           case "salvar-divida":
             include("controllers/divida_controller.php");
+            break;
+          case "editar-devedor":
+            include("views/editar-devedor.php");
+            break;
+          case "atualizar-devedor":
+            include("controllers/devedor_controller.php");
+            $devedorController = new DevedorController();
+            $success = $devedorController->atualizar();
+            if ($success) {
+              echo "<div class='alert alert-success'>Atualização realizada com sucesso!</div>";
+            } else {
+              echo "<div class='alert alert-danger'>Erro ao atualizar. Tente novamente.</div>";
+            }
             break;
           default:
             echo "<h1>Bem-vindo ao sistema de Cadastro de Devedores e Dívidas</h1>";
