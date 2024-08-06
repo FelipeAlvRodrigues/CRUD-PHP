@@ -16,4 +16,9 @@ class DevedorController
     $classDevedor = new Devedor();
     $classDevedor->inserir($dados);
   }
+  public function listar()
+  {
+    $classDevedor = new Devedor();
+    return $classDevedor->listar();
+  }
 }

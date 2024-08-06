@@ -21,5 +21,11 @@ class Devedor
     $stmt->bindParam(':endereco', $dados['endereco']);
     $stmt->execute();
   }
+  public function listar()
+  {
+    $stmt = $this->conection->prepare("SELECT * FROM devedores");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
 }
 ?>

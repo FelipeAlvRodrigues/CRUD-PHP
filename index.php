@@ -49,6 +49,7 @@
             break;
           case "list-user":
             include("views/list_devedores.php");
+        
             break;
           case "form-divida":
             include("views/form_dividas.php");
