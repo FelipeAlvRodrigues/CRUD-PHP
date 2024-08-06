@@ -26,8 +26,7 @@ $devedores = $devedorController->listar();
         <td><?php echo htmlspecialchars($devedor['endereco']); ?></td>
         <td>
         <a href="?page=editar-devedor&id=<?php echo $devedor['id']; ?>" class="btn btn-success">Editar</a>
-
-          <button class="btn btn-danger">Excluir</button>
+        <a href="?page=excluir-devedor&id=<?php echo $devedor['id']; ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este devedor?');">Excluir</a>
         </td>
       </tr>
     <?php endforeach; ?>

@@ -84,6 +84,16 @@
               echo "<div class='alert alert-danger'>Erro ao atualizar. Tente novamente.</div>";
             }
             break;
+          case "excluir-devedor":
+            include("controllers/devedor_controller.php");
+            $devedorController = new DevedorController();
+            $success = $devedorController->excluir();
+            if ($success) {
+              echo "<div class='alert alert-success'>Devedor excluído com sucesso!</div>";
+            } else {
+              echo "<div class='alert alert-danger'>Erro ao excluir o devedor. Tente novamente.</div>";
+            }
+            break;
           default:
             echo "<h1>Bem-vindo ao sistema de Cadastro de Devedores e Dívidas</h1>";
             break;

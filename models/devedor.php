@@ -76,5 +76,24 @@ class Devedor
       return false;
     }
   }
+  public function excluir($id)
+  {
+    try {
+      $this->conection->beginTransaction();
+      $stmt = $this->conection->prepare("DELETE FROM devedores WHERE id = :id");
+      $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+      if ($stmt->execute()) {
+        $this->conection->commit();
+        return true;
+      } else {
+        $this->conection->rollBack();
+        return false;
+      }
+    } catch (PDOException $e) {
+      $this->conection->rollBack();
+      echo "Erro: " . $e->getMessage();
+      return false;
+    }
+  }
 }
 ?>
