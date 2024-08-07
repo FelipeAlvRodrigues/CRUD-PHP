@@ -6,8 +6,8 @@
       <input type="number" class="form-control" id="devedor_id" name="devedor_id" required>
     </div>
     <div class="form-group">
-      <label for="descricao_titulo">Descrição do Título</label>
-      <textarea class="form-control" id="descricao_titulo" name="descricao_titulo"></textarea>
+      <label for="descricao">Descrição do Título</label>
+      <textarea class="form-control" id="descricao" name="descricao"></textarea>
     </div>
     <div class="form-group">
       <label for="valor">Valor</label>
