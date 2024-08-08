@@ -18,4 +18,10 @@ class Divida
     $stmt->bindParam(':data_vencimento', $dados['data_vencimento']);
     return $stmt->execute();
   }
+  public function ListarDivida()
+  {
+    $stmt = $this->conection->prepare("SELECT dividas.id, devedores.nome, devedores.cpf_cnpj, dividas.descricao, dividas.valor, dividas.valor, dividas.data_vencimento, dividas.updated_at FROM dividas JOIN devedores ON dividas.devedor_id = devedores.id ORDER BY dividas.data_vencimento ASC ");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
 }
