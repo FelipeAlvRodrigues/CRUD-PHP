@@ -70,6 +70,18 @@
             break;
           case "salvar-divida":
             include("controllers/divida_controller.php");
+            $dividaController = new DividaController();
+            $success = $dividaController->SalvarDivida();
+            if ($success) {
+              echo "<div class='alert alert-success'>Dívida cadastrada com sucesso!</div>";
+            } else {
+              echo "<div class='alert alert-danger'>Erro ao cadastrar Dívida. Tente novamente.</div>";
+            }
+            break;
+
+            break;
+          case "editar-divida":
+            include("views/editar-divida.php");
             break;
           case "editar-devedor":
             include("views/editar-devedor.php");
@@ -82,6 +94,17 @@
               echo "<div class='alert alert-success'>Atualização realizada com sucesso!</div>";
             } else {
               echo "<div class='alert alert-danger'>Erro ao atualizar. Tente novamente.</div>";
+            }
+            break;
+            
+          case "atualizar-divida":
+            include("controllers/divida_controller.php");
+            $dividaController = new DividaController();
+            $success = $dividaController->AtualizarDivida();
+            if ($success) {
+              echo "<div class='alert alert-success'>Dívida atualizada com sucesso!</div>";
+            } else {
+              echo "<div class='alert alert-danger'>Erro ao atualizar a Dívida. Tente novamente.</div>";
             }
             break;
           case "excluir-devedor":

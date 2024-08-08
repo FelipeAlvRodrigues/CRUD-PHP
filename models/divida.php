@@ -24,4 +24,30 @@ class Divida
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
+  public function BuscarId($id)
+  {
+    $stmt = $this->conection->prepare("SELECT * FROM dividas WHERE id = :id");
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+  public function AtualizarDivida($dados)
+  {
+    $stmt = $this->conection->prepare("
+        UPDATE dividas 
+        SET 
+            devedor_id = :devedor_id, 
+            descricao = :descricao, 
+            valor = :valor, 
+            data_vencimento = :data_vencimento, 
+            updated_at = NOW() 
+        WHERE id = :id
+    ");
+    $stmt->bindParam(':devedor_id', $dados['devedor_id']);
+    $stmt->bindParam(':descricao', $dados['descricao']);
+    $stmt->bindParam(':valor', $dados['valor']);
+    $stmt->bindParam(':data_vencimento', $dados['data_vencimento']);
+    $stmt->bindParam(':id', $dados['id']);
+    return $stmt->execute();
+  }
 }
