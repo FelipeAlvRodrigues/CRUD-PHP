@@ -96,7 +96,7 @@
               echo "<div class='alert alert-danger'>Erro ao atualizar. Tente novamente.</div>";
             }
             break;
-            
+
           case "atualizar-divida":
             include("controllers/divida_controller.php");
             $dividaController = new DividaController();
@@ -117,6 +117,17 @@
               echo "<div class='alert alert-danger'>Erro ao excluir o devedor. Tente novamente.</div>";
             }
             break;
+          case "excluir-divida":
+            include("controllers/divida_controller.php");
+            $dividaController = new DividaController();
+            $dividaController->ExcluirDivida();
+            if ($success) {
+              echo "<div class='alert alert-success'>Devedor excluído com sucesso!</div>";
+            } else {
+              echo "<div class='alert alert-danger'>Erro ao excluir o devedor. Tente novamente.</div>";
+            }
+            break;
+
           default:
             echo "<h1>Bem-vindo ao sistema de Cadastro de Devedores e Dívidas</h1>";
             break;

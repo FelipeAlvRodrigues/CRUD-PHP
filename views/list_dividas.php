@@ -27,6 +27,7 @@ $dividas = $dividaController->ListarDivida();
           <td>
             <a href="?page=editar-divida&id=<?php echo $divida['id']; ?>" class="btn btn-success">Editar</a>
             <a href="?page=excluir-divida&id=<?php echo $divida['id']; ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta dívida?');">Excluir</a>
+
           </td>
         </tr>
       <?php endforeach; ?>
